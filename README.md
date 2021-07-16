@@ -94,7 +94,7 @@ mkdir -p ~/.config/hive-plug-play && export PLUG_PLAY_HOME=~/.config/hive-plug-p
 ### Configure data collection for a specific project or application
 Project specific op_ids
 
-|Prosudo passwd postgres`ject Name| Value |
+|Project Name| Value |
 |----------------|-------------|
 | [podping](podping.cloud) | podping,hive-hydra |
 | 3speak | 3speak-publish |
