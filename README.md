@@ -50,6 +50,10 @@
   ```
   sudo -i -u postgres
   ```
+  Connect to the database
+  ```
+  psql
+  ```
   Create datbase, and setup permissions
   ```
   CREATE DATABASE plug_play;
