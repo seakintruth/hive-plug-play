@@ -25,7 +25,7 @@
 - Configure postgresql for remote [Authentication]
   - Update the file [pg_hba.conf](https://stackoverflow.com/a/18664239)
 - **OR** <br/>For default postgres installs on localhost, at a minimum **CHANGE THE PASSWORD!**
-  1. Update the password for the posgres database user
+  1. Update the password for the postgres database user
   ```
   sudo -i -u postgres
   # the attempt to connect to postgresql
