@@ -82,7 +82,7 @@ mkdir -p ~/.config/hive-plug-play && export PLUG_PLAY_HOME=~/.config/hive-plug-p
     - Any text editor should do:
   ```
   db_username=postgres
-  db_password=password
+  db_password={Enter Your Password Here}
   server_host=127.0.0.1
   server_port=5432
   ssl_cert=
@@ -105,12 +105,22 @@ Project specific op_ids
 | CBM | cbm__backpack__drink_beer,	cbm__balance__deposit,	cbm__building__rent,	cbm__building__restore_condition,	cbm__craft__claim,	cbm__craft__finish_now,	cbm__craft__start,	cbm__daily_quests__claim,	cbm__daily_quests__finish_now,	cbm__daily_quests__start,	cbm__enhancer__claim,	cbm__enhancer__start,	cbm__market__completed_purchase,	cbm__market__completed_sale,	cbm__market__placed_a_sell_order,	cbm__pub__drink_beer,	cbm__pub__sold_beer,	cbm__referral__claim |
 | many more exist | (hundreds) |
 
+### Configure postgres access
+Edit the postgres access by updating the pg_hba.conf file:
+- This path will be different for different versions of postgres, here is 13
+```
+sudo nano /etc/postgresql/13/main/pg_hba.conf
+```
+Navigate to the postgres user line and change 'peer' to 'password'
+```
+local   all             postgres                                password
+```
+
 ### Installation:
 
 - Clone the repo
 - `cd hive-plug-play`
 - `pip3 install -e .`
-### Optionally install with
 - `sudo python3 setup.py install`
 
 ### Run:
