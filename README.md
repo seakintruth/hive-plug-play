@@ -22,9 +22,10 @@
 | ```sudo apt install postgresql-all```  | ```sudo apt install postgresql```  |
 
 ### Configure PostgreSQL:
-- Configure postgresql for remote [Authentication]
+- (optionally) Configure postgresql for remote [Authentication]
   - Update the file [pg_hba.conf](https://stackoverflow.com/a/18664239)
-- **OR** <br/>For default postgres installs on localhost, at a minimum **CHANGE THE PASSWORD!**
+- Change default passwords
+  - For default postgres installs on localhost, at a minimum **CHANGE THE PASSWORD!**
   1. Update the password for the postgres database user
   ```
   sudo -i -u postgres
@@ -60,7 +61,21 @@
   GRANT ALL PRIVILEGES ON DATABASE plug_play TO postgres;
   ```
   Verify database was created with `\l`
-
+- Create a [read_only_user](https://stackoverflow.com/a/39029296)
+```
+	CREATE ROLE read_all WITH
+		LOGIN
+		NOSUPERUSER
+		NOCREATEDB
+		NOCREATEROLE
+		NOINHERIT
+		NOREPLICATION
+		CONNECTION LIMIT -1
+		PASSWORD 'xxxxxx';
+	
+	GRANT pg_read_all_settings, pg_read_all_stats, pg_read_server_files, pg_stat_scan_tables TO read_all;
+	COMMENT ON ROLE read_all IS 'read all content user for web facing queries';
+```
 ### Configure Hive Plug & Play
 Change user to your postgres account `su postgres` (this shouldn't be required if authenticating via certificate)
 
