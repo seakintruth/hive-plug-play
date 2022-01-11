@@ -15,14 +15,11 @@
 - PostgreSQL 10+<br/>
 
 **Install depencencies**<br/>
-- Python3 : `sudo apt install python3 python3-pip`
-- PostgreSQL, install with either:
-
-| Local Server  | Client Only (Remote server) |
-| ------------- | ------------- |
-| ```sudo apt install postgresql-all```  | ```sudo apt install postgresql```  |
+- Python3 and PostgreSQL : `sudo apt install python3 python3-pip postgresql`
 
 ### Configure PostgreSQL:
+Start Postgresql with `sudo systemctl start postgresql` or `sudo service postgresql start`
+
 - Configure postgresql for remote [Authentication]
   - Update the file [pg_hba.conf](https://stackoverflow.com/a/18664239)
 - **OR** <br/>For default postgres installs on localhost, at a minimum **CHANGE THE PASSWORD!**
